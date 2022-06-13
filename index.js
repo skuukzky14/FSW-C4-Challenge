@@ -7,11 +7,8 @@ const paperComputer = document.querySelector(".paper-computer")
 const scissorsComputer = document.querySelector(".scissors-computer")
 
 const refreshButton = document.querySelector("#refresh-button")
-
 const versusText = document.querySelector('.versus-text')
-
 const winnerBox = document.querySelector('.win-box')
-
 const clicked = "#C4C4C4"
 
 let playerChoice = ''
@@ -48,9 +45,7 @@ class RockPaperScissors{
     static winnerDecider(player, computer){
         const playerValue = player.getAttribute('value')
         const comValue = computer.getAttribute('value')
-        this.hideVersusText()
-        this.showWinnerBox()
-    
+        
         if(playerValue === 'rock' && comValue === 'rock' || playerValue === 'paper' && comValue === 'paper' || playerValue === 'scissors' && comValue === 'scissors'){
             winnerBox.innerHTML = 'DRAW'
             winnerBox.style['background-color'] = '#035B0C'
@@ -59,7 +54,9 @@ class RockPaperScissors{
         }else{
             winnerBox.innerHTML = 'COM <br> WIN'
         }
-    
+
+        this.hideVersusText()
+        this.showWinnerBox()
     }
     
     static hideVersusText(){
@@ -70,8 +67,6 @@ class RockPaperScissors{
         winnerBox.style.display = 'inline'
     }   
 }
-
-
 
 rockPlayer.addEventListener('click', ()=>{
     RockPaperScissors.resetGame()
@@ -99,8 +94,6 @@ paperPlayer.addEventListener('click', ()=>{
     RockPaperScissors.winnerDecider(playerChoice, comChoice)
     RockPaperScissors.hideVersusText()
   })
-
-
 
  refreshButton.addEventListener('click', ()=>{
     RockPaperScissors.resetGame()
